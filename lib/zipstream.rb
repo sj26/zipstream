@@ -122,6 +122,6 @@ class ZipStream
 protected
 
   def dostime datetime
-    datetime.year << 25 | datetime.month << 21 | datetime.day << 16 | datetime.hour << 11 | datetime.minute << 5 | datetime.second >> 1
+    datetime.year << 25 | datetime.month << 21 | datetime.day << 16 | datetime.hour << 11 | datetime.min << 5 | datetime.sec >> 1
   end
 end
