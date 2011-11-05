@@ -4,17 +4,21 @@ Create zip files to a stream.
 
 Integration with Ruby on Rails means you can create a file, `index.zipstream`, which is a ruby file with a zip object:
 
-    @entries.each do |entry|
-      zip.write "entry-#{entry.id}.txt", entry.to_s
-    end
+```ruby
+@entries.each do |entry|
+  zip.write "entry-#{entry.id}.txt", entry.to_s
+end
+```
 
 Which will happily implicitly render from:
 
-    class EntriesController
-      def index
-        @entries = Entry.all
-      end
-    end
+```ruby
+class EntriesController
+  def index
+    @entries = Entry.all
+  end
+end
+```
 
 Giving you a zip file when rendered. More to come!
 
