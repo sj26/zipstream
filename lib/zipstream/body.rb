@@ -1,32 +1,21 @@
-require 'zipstream'
-require 'zipstream-fiber-compat' unless defined? Fiber
-
+# Stream a zipfile as a rack response body
+#
 # We use Fibers to deep-yield data being written to the zip stream
-# to use as a rack response body (responds to #each)
-class ZipStream::Body
+# directly to Rack
+class Zipstream::Body
   def initialize &block
-    @stream = FiberYieldingStream.new
-    @fiber = Fiber.new do
-      zip = ZipStream.new @stream
-      block.call zip
-      zip.close
+    @stream = Zipstream::FiberYieldingStream.new
+    @fiber = Zipstream::Fiber.new do
+      Zipstream.new(@stream).tap(&block).close
       # Make sure this returns nil as a sentinel
       nil
     end
   end
 
   def each
+    # Yield fiber yielded data until we hit our nil sentinel
     until (yielded = @fiber.resume).nil?
       yield yielded.first
     end
-  end
-
-  # A stream that yields each write to the current fiber
-  class FiberYieldingStream
-    def write data
-      tap { Fiber.yield data }
-    end
-
-    alias << write
   end
 end

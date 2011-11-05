@@ -2,7 +2,7 @@ require 'date'
 require 'zlib'
 
 # Simple, streamable zip file creation
-class ZipStream
+class Zipstream
   VERSION = File.read File.expand_path '../../VERSION', __FILE__
 
   def initialize stream, options={}
@@ -126,3 +126,7 @@ protected
     datetime.year << 25 | datetime.month << 21 | datetime.day << 16 | datetime.hour << 11 | datetime.min << 5 | datetime.sec >> 1
   end
 end
+
+require 'zipstream/fiber'
+require 'zipstream/fiber_yielding_stream'
+require 'zipstream/body'

@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'zipstream'
 
-describe ZipStream do
+describe Zipstream do
   pending
 end
