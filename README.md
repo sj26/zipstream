@@ -30,7 +30,7 @@ Tested with Rails 3.1 on REE 1.8.7 and MRI 1.9.3. Specs coming soon (tm).
 
 ## Thanks
 
-Inspired by http://pablotron.org/software/zipstream-php/
+Inspired by Rails Builder templates and http://pablotron.org/software/zipstream-php/
 
 ## License
 
