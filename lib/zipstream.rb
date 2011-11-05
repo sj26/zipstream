@@ -25,6 +25,7 @@ class ZipStream
     crc = Zlib.crc32 data
     zdata_length = zdata.length
     data_length = data.length
+    name = name.to_s
     name_length = name.length
     comment = options[:comment].to_s || ""
     comment_length = comment.length

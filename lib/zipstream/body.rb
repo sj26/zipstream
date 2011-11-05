@@ -16,8 +16,8 @@ class ZipStream::Body
   end
 
   def each
-    while !(data = @fiber.resume).nil?
-      yield data
+    until (yielded = @fiber.resume).nil?
+      yield yielded.first
     end
   end
 
