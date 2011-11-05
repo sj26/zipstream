@@ -28,6 +28,8 @@ Keep in mind that this will use one of your workers/threads/processes until the 
 
 Tested with Rails 3.1 on REE 1.8.7 and MRI 1.9.3. Specs coming soon (tm).
 
+Large files are not yet handled efficiently. Coming soon!
+
 ## Thanks
 
 Inspired by Rails Builder templates and http://pablotron.org/software/zipstream-php/
