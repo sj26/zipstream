@@ -130,3 +130,4 @@ end
 require 'zipstream/fiber'
 require 'zipstream/fiber_yielding_stream'
 require 'zipstream/body'
+require 'zipstream/railtie' if defined? Rails
