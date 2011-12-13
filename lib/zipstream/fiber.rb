@@ -13,29 +13,29 @@ else
       @body = lambda &block
     end
 
-    def resume *args
+    def resume arg
       @@fibers.push self
       # jumping into fiber
-      jump *args
+      jump arg
     end
 
     def self.current
       @@fibers.last
     end
 
-    def self.yield *args
+    def self.yield arg
       if fiber = @@fibers.pop
         # jumping out of fiber
-        fiber.send :jump, args
+        fiber.send :jump, arg
       end
     end
 
   private
 
-    def jump *args
+    def jump arg
       callcc do |continuation|
         destination, @body = @body, continuation
-        destination.call *args
+        destination.call arg
         @@fibers.pop
         # return from the last 'resume'
         @body.call

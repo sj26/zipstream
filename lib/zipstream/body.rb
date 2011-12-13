@@ -15,7 +15,7 @@ class Zipstream::Body
   def each
     # Yield fiber yielded data until we hit our nil sentinel
     until (yielded = @fiber.resume).nil?
-      yield yielded.first
+      yield yielded
     end
   end
 end
