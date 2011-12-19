@@ -2,7 +2,7 @@
 
 Create zip files to a stream.
 
-Integration with Ruby on Rails means you can create a file, `index.zipstream`, which is a ruby file with a zip object:
+Integration with Ruby on Rails means you can create a view, `index.zipstream`, which is a ruby file with a zip object:
 
 ```ruby
 @entries.each do |entry|
