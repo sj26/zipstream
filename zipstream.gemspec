@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.extra_rdoc_files = ["README.md", "LICENSE"]
 
-  s.add_development_dependency 'rspec', '~> 2.7.0'
+  s.add_development_dependency 'rspec', '~> 2.8'
 end
