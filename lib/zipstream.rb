@@ -3,8 +3,6 @@ require 'zlib'
 
 # Simple, streamable zip file creation
 class Zipstream
-  VERSION = File.read File.expand_path '../../VERSION', __FILE__
-
   def initialize stream, options={}
     @stream = stream
     @length = 0
@@ -127,6 +125,7 @@ protected
   end
 end
 
+require 'zipstream/version'
 require 'zipstream/fiber'
 require 'zipstream/fiber_yielding_stream'
 require 'zipstream/body'

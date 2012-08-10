@@ -1,6 +1,8 @@
+require File.expand_path('../lib/zipstream/version.rb', __FILE__)
+
 Gem::Specification.new do |s|
   s.name = "zipstream"
-  s.version = File.read(File.expand_path("../VERSION", __FILE__)).strip
+  s.version = Zipstream::VERSION
   s.summary = "Create zip files directly to a stream."
 
   s.author = "Samuel Cochran"
