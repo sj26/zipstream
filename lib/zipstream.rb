@@ -13,12 +13,17 @@ class Zipstream
   end
 
   def write name, data, options={}
-    # Fails without specifying the window bits (odd!)
-    deflater = Zlib::Deflate.new Zlib::BEST_COMPRESSION, -Zlib::MAX_WBITS
-    zdata = deflater.deflate data, Zlib::FINISH
-    deflater.close
+    if options[:method] == :store
+      zdata = data
+      method = 0x00
+    else
+      # Fails without specifying the window bits (odd!)
+      deflater = Zlib::Deflate.new Zlib::BEST_COMPRESSION, -Zlib::MAX_WBITS
+      zdata = deflater.deflate data, Zlib::FINISH
+      deflater.close
+      method = 0x08
+    end
 
-    method = 0x08
     timestamp = dostime options[:datetime] || DateTime.now
     crc = Zlib.crc32 data
     zdata_length = zdata.length
