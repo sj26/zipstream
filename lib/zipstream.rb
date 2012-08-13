@@ -32,9 +32,9 @@ class Zipstream
       # central file header signature
       0x02014b50,
       # version made by
-      (6 << 8) + 3,
+      0x0A,
       # version needed to extract
-      (6 << 8) + 3,
+      0x0A,
       # general purpose bit flag
       0x00,
       # compresion method (deflate or store)
@@ -69,7 +69,7 @@ class Zipstream
       # local file header signature
       0x04034b50,
       # version needed to extract
-      (6 << 8) + 3,
+      0x0A,
       # general purpose bit flag
       0x00,
       # compresion method (deflate or store)
