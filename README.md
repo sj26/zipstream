@@ -1,4 +1,4 @@
-# ZipStream
+# ZipStream [![Build Status](https://secure.travis-ci.org/sj26/zipstream.png?branch=master)](http://travis-ci.org/sj26/zipstream)
 
 Create zip files to a stream.
 
