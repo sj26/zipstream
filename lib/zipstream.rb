@@ -31,10 +31,10 @@ class Zipstream
     @directory << [
       # central file header signature
       0x02014b50,
-      # version made by
-      (6 << 8) + 3,
-      # version needed to extract
-      (6 << 8) + 3,
+      # version made by - "DOS" & http://www.pkware.com/documents/casestudies/APPNOTE.TXT Version: 6.3.2
+      (0 << 8) & 63,
+      # version needed to extract - "DOS" & "2.0 - File is compressed using Deflate compression"
+      (0 << 8) & 20,
       # general purpose bit flag
       0x00,
       # compresion method (deflate or store)
@@ -68,8 +68,8 @@ class Zipstream
     @stream << [
       # local file header signature
       0x04034b50,
-      # version needed to extract
-      (6 << 8) + 3,
+      # version needed to extract - "DOS" & "2.0 - File is compressed using Deflate compression"
+      (0 << 8) & 20,
       # general purpose bit flag
       0x00,
       # compresion method (deflate or store)
