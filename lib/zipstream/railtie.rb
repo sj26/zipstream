@@ -2,7 +2,9 @@
 class Zipstream::Railtie < Rails::Railtie
   initializer "zipstream" do
     # Register Mime::ZIP
-    Mime::Type.register "application/zip", :zip
+    unless Mime::Type.lookup "application/zip"
+      Mime::Type.register "application/zip", :zip
+    end
 
     # Mark our template handler as rendering zip files
     Zipstream::Railtie::Template.default_format = Mime::ZIP
