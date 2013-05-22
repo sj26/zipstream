@@ -26,7 +26,7 @@ Giving you a zip file when rendered. More to come!
 
 Keep in mind that this will use one of your workers/threads/processes until the file is completely downloaded. We are using an iterated rack body which streams so if rack/web servers handle this nicely then you might be in luck.
 
-Tested with Rails 3.1 on REE 1.8.7 and MRI 1.9.3. Specs coming soon (tm).
+Tested with Rails 3.1 on REE 1.8.7 and MRI 1.9.3.
 
 Large files are not yet handled efficiently. Coming soon!
 
